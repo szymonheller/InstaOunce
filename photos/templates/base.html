@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instaounce &bull; {{ title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/photos/modern-normalize.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'photos/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+    {% block extracss %}{% endblock %}
+</head>
+
+<body>
+
+
+
+    <div class="header">
+
+        <div class="header-inside">
+
+            <h1>Instaounce</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'photos:index' %}">Strona główna</a></li>
+                    <li><a href="{% url 'admin:index' %}">Panel administracyjny</a></li>
+                    <li><a href="{% url 'logout' %}">Wyloguj się</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+
+    </div>
+
+    <div class="main-box">
+        <main>{% block main %}{% endblock %}</main>
+
+
+        <footer>
+
+            <p>Copyright &copy; 2020 &ndash; Szymon H.</p>
+
+        </footer>
+    </div>
+
+
+
+
+
+
+
+    <script src="{% static 'photos/main.js' %}"></script>
+
+</body>
+
+</html>

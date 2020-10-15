@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h1>{{ post.user }}</h1>
+<p>{{ post.created_timestamp }}</p>
+
+
+<p>
+
+    <a href="{% url 'photos:update_post' post.pk %}" class="btn btn-primary">Edytuj</a>
+
+<form method="POST" action="{% url 'photos:delete_post' post.pk %}">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Usuń">
+</form>
+
+</p>
+
+
+<img src="{{ post.image.url }}" alt="{{ post.content }}">
+
+<p>{{ post.content }}</p>
+
+
+<p>Polubienia: {{ post.like_count }}</p>
+
+<button id="like" data-url="{% url 'photos:like' post.pk %}" class="btn btn-success liked">Polub</button>
+
+<button id="dislike" data-url="{% url 'photos:dislike' post.pk %}" class="btn btn-danger">Odlub</button>
+
+
+
+<h3>Komentarze</h3>
+
+<form method="POST" action="{% url 'photos:create_comment' post.pk %}">
+
+    {% csrf_token %}
+
+    <textarea name="content"></textarea>
+
+    <input type="submit" value="Dodaj komentarz">
+
+</form>
+
+{% for comment in post.comment_set.all %}
+
+<h4>{{ comment.user }}</h4>
+<p>{{ comment.created_timestamp }}</p>
+<p>{{ comment.content }}</p>
+
+{% endfor %}
+
+{% endblock %}

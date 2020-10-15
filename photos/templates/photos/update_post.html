@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h1>Edytuj wpis</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Edytuj wpis">
+
+</form>
+
+
+{% endblock %}

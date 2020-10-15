@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block main2 %}
+
+<ul>
+    {% for post in post_list %}
+
+    <li>{{ post }} <a href="{% url 'photos:post' post.pk %}">(zobacz)</a></li>
+
+    {% empty %}
+
+    <li>Nie ma :(</li>
+
+    {% endfor %}
+
+</ul>
+
+{% endblock %}
+
+
+{% block main %}
+
+
+{% for post in post_list %}
+
+{% include "includes/card.html" with post=post show_user=True %}
+
+{% empty %}
+
+<p>Brak wpisów, czy followujesz już kogoś?</p>
+
+{% endfor %}
+
+
+{% endblock %}

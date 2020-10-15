@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="when-not-logged">
+
+    <div class="main-box not-logged-box">
+
+        <img class="phone-image" src="../../static/img/phone-123.png" alt="">
+
+        <div class="right-box">
+
+            <div class="box-inside">
+
+                <h1>Instaounce</h1>
+
+                <div class="login-or-register">
+
+                    <a href="{% url 'login' %}" class="btn btn-primary">Zaloguj się</a>
+
+                    <span>Nie masz konta?</span>
+
+                    <a href="{% url 'photos:register' %}" class="btn btn-secondary">Zarejestruj się</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

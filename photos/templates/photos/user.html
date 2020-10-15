@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h1>{{ user }}</h1>
+
+{% if user.profile_photo %}
+<img src="{{ user.profile_photo.url }}" alt="Profile photo of {{ user }}">
+{% else %}
+brak fotografii
+{% endif %}
+
+<p class="description">{{ user.description }}</p>
+<p>WWW: {{ user.website|urlize }}</p>
+
+<p>
+    Posty: {{ user.post_set.count }}
+    Obserwowani: {{ user.following.count }}
+    Obserwujący: {{ user.followers.count }}
+</p>
+
+
+{% for post in user.post_set.all %}
+
+{% include "includes/card.html" with post=post show_user=False %}
+
+{% endfor %}
+
+{% endblock %}
