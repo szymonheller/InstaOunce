@@ -28,6 +28,20 @@
         <div class="header-inside">
 
             <h1>Instaounce</h1>
+
+
+            <!-- wyszukiwarka: -->
+
+            <form action="{% url 'photos:search' %}" method="GET">
+
+                <input type="search" name="q">
+
+                <button type="submit">Search</button>
+
+            </form>
+
+            <!-- ///////// -->
+
             <nav>
                 <ul>
                     <li><a href="{% url 'photos:index' %}">Strona główna</a></li>

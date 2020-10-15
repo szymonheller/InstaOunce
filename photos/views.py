@@ -99,6 +99,22 @@ class UserView(DetailView):
         return super().get_context_data(**context)
 
 
+class SearchView(ListView):
+    context_object_name = "users"
+    template_name = "photos/search.html"
+    extra_context = {
+        "title": "Wyszukiwarka",
+    }
+
+    def get_queryset(self):
+        phrase = self.request.GET.get("q")
+        if phrase is None:
+            return User.objects.none()
+        return User.objects.filter(
+            email__icontains=phrase
+        )  # rozbuduj za pomocą Q() (przeszukaj: email LUB imię LUB nazwisko)
+
+
 @login_required
 @require_POST
 def like(request, post_pk):

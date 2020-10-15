@@ -9,6 +9,7 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("feed", views.FeedView.as_view(), name="feed"),
     path("user/<int:pk>", views.UserView.as_view(), name="user"),
+    path("search", views.SearchView.as_view(), name="search"),
     path("post", views.CreatePost.as_view(), name="create_post"),
     path("post/<int:pk>", views.PostView.as_view(), name="post"),
     path("post/<int:pk>/edit", views.UpdatePost.as_view(), name="update_post"),
