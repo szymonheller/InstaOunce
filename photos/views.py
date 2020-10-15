@@ -110,9 +110,19 @@ class SearchView(ListView):
         phrase = self.request.GET.get("q")
         if phrase is None:
             return User.objects.none()
-        return User.objects.filter(
-            email__icontains=phrase
-        )  # rozbuduj za pomocą Q() (przeszukaj: email LUB imię LUB nazwisko)
+
+        q = (
+            Q(email__icontains=phrase)
+            | Q(firstname__icontains=phrase)
+            | Q(lastname__icontains=phrase)
+        )
+
+        return User.objects.filter(q)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["phrase"] = self.request.GET.get("q")
+        return context
 
 
 @login_required
