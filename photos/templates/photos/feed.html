@@ -6,7 +6,19 @@
 
 {% for post in post_list %}
 
-{% include "includes/card.html" with post=post show_user=True %}
+<div class="feed-box">
+
+    <div class="feed-box-inside">
+
+        <img src="{{ post.image.url }}" alt="{{ post.content }}">
+
+        {% include "includes/card.html" with post=post show_user=True %}
+
+    </div>
+
+</div>
+
+
 
 {% empty %}
 

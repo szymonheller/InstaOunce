@@ -1,1 +1,5 @@
-<li>{{ post }} <a href="{% url 'photos:post' post.pk %}">(zobacz)</a></li>
+<li class="post-on-feed">{{ post }} 
+    <a href="{% url 'photos:post' post.pk %}">
+        zobacz więcej
+    </a>
+</li>

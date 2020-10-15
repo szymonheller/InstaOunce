@@ -132,3 +132,26 @@ a {
 .when-not-logged .not-logged-box .right-box .box-inside .login-or-register span {
     padding: 40px 0;
 }
+
+
+/* ---------------------- feed.html ---------------------- */
+
+.feed-box {
+    padding: 70px 20px 0;
+    max-width: 935px;
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ---------------------- card.html ---------------------- */
+
+.post-on-feed a {
+    color: #62b0fa;
+    text-decoration: none;
+}
