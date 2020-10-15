@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+
+{% for user in users %}
+
+<h2>Wynik wyszukiwania dla {{ phrase }}:</h2>
+
+<p>Dane użytkownika: <a href="{{ user.get_absolute_url }}">{{ user.email }} ~ {{ user.firstname }}
+                {{ user.lastname }}</a>
+</p>
+
+{% empty %}
+
+<p>Brak użytkowników</p>
+
+{% endfor %}
+
+
+{% endblock %}
